@@ -2,14 +2,14 @@ import React from "react";
 import "./GameUi.css";
 import { GoldenButton } from "./GoldenButton";
 import { TextPrompt, TextPromptProperties } from "./TextPrompt";
-import { UiController } from "../modules/UiController";
+import { GameController } from "../modules/GameController";
 
 export type GameUiState = {
     textPromptProperties: TextPromptProperties;
 };
 
 type GameUiProps = {
-    uiController: UiController;
+    uiController: GameController;
 };
 
 export const GameUi: React.FC<GameUiProps> = (props) => {

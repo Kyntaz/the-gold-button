@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { GameUi } from "./components/GameUi";
 import "./index.css";
-import { UiController } from "./modules/UiController";
+import { GameController } from "./modules/GameController";
 
-const uiController = new UiController();
+const uiController = new GameController();
 
 ReactDOM.render(
     <React.StrictMode>

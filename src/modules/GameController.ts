@@ -1,6 +1,6 @@
 import { GameUiState } from "../components/GameUi";
 
-export class UiController {
+export class GameController {
     private state?: GameUiState;
     private setState?: (state: GameUiState) => void;
 
