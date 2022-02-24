@@ -4,11 +4,11 @@ import { GameUi } from "./components/GameUi";
 import "./index.css";
 import { GameController } from "./modules/GameController";
 
-const uiController = new GameController();
+const gameController = new GameController();
 
 ReactDOM.render(
     <React.StrictMode>
-        <GameUi uiController={uiController} />
+        <GameUi gameController={gameController} />
     </React.StrictMode>,
     document.getElementById("root")
 );

@@ -9,18 +9,18 @@ export type GameUiState = {
 };
 
 type GameUiProps = {
-    uiController: GameController;
+    gameController: GameController;
 };
 
 export const GameUi: React.FC<GameUiProps> = (props) => {
     const [state, setState] = React.useState<GameUiState>({
         textPromptProperties: {
-            text: "The Gold Button",
+            text: "",
             color: "white",
             size: 32,
         },
     });
-    props.uiController.initialize({ ...state }, setState);
+    props.gameController.initialize({ ...state }, setState);
 
     return (
         <div className="game-ui">
@@ -29,11 +29,7 @@ export const GameUi: React.FC<GameUiProps> = (props) => {
                 color={state?.textPromptProperties.color ?? "white"}
                 size={state?.textPromptProperties.size ?? 24}
             />
-            <GoldenButton
-                onClick={() =>
-                    props.uiController.displaySlowText("Something Else")
-                }
-            />
+            <GoldenButton onClick={() => props.gameController.gameOver()} />
         </div>
     );
 };

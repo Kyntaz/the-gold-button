@@ -1,14 +1,21 @@
 import { GameUiState } from "../components/GameUi";
+import { EventDispatcher } from "./EventDispatcher";
 
 export class GameController {
     private state?: GameUiState;
     private setState?: (state: GameUiState) => void;
+    private eventDispatcher: EventDispatcher;
+
+    constructor() {
+        this.eventDispatcher = new EventDispatcher(this);
+    }
 
     public initialize(
         state: GameUiState,
         setState: (state: GameUiState) => void
     ): void {
         (this.state = state), (this.setState = setState);
+        this.eventDispatcher.start();
     }
 
     public async wait(ms: number): Promise<void> {
@@ -47,5 +54,9 @@ export class GameController {
             await this.wait(interval);
             this.displayText(partialText, textProps);
         }
+    }
+
+    public async gameOver(): Promise<void> {
+        await this.eventDispatcher.end();
     }
 }
