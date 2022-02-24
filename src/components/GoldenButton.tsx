@@ -1,6 +1,6 @@
-import "./Button.css";
+import "./GoldenButton.css";
 import React from "react";
 
-export const Button: React.FC = () => {
+export const GoldenButton: React.FC = () => {
     return <button className="the-button">Launch!</button>;
 };
