@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import { GameUi } from "./components/GameUi";
 import "./index.css";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <GameUi />
     </React.StrictMode>,
     document.getElementById("root")
 );
