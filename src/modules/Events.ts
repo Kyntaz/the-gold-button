@@ -6,14 +6,6 @@ export type GameEvent = {
 };
 
 export const EVENT_LIST: Array<GameEvent> = [
-    // Dummy Event
-    {
-        probability: 1,
-        procedure: async (gameController) => {
-            await gameController.displaySlowText("A dummy event...");
-            await gameController.wait(3_000);
-        },
-    },
     // Nothing happens
     {
         probability: 1,
