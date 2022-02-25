@@ -14,6 +14,13 @@ export const EVENT_LIST: Array<GameEvent> = [
             await gameController.wait(3_000);
         },
     },
+    // Nothing happens
+    {
+        probability: 1,
+        procedure: async (gc) => {
+            await gc.wait(Math.random() * 30_000);
+        },
+    },
     // Eminent destruction
     {
         probability: 1,
