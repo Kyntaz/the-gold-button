@@ -56,6 +56,10 @@ export class GameController {
         }
     }
 
+    public clearText(): void {
+        this.displayText("");
+    }
+
     public async gameOver(): Promise<void> {
         await this.eventDispatcher.end();
     }
