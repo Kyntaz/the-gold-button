@@ -93,7 +93,7 @@ export const GAME_START_EVENT: GameEvent = {
         );
         await gc.wait(3_000);
         await gc.displaySlowText(
-            "It is not the President's place to worry about such trivial things such as laws and the inner politics of the nation's states and provinces. No sir!"
+            "It is not the President's place to worry about such trivial things as laws and the inner politics of the nation's states and provinces. No sir!"
         );
         await gc.wait(3_000);
         await gc.displaySlowText(
