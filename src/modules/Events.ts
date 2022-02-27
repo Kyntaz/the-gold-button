@@ -32,25 +32,21 @@ export const EVENT_LIST: Array<GameEvent> = [
                 "People will die, we must retaliate if we are to show strength to the other nations!"
             );
             await gc.wait(3_000);
-            await gc.displaySlowText(
-                "I trust you to make this choice, sir."
-            );
+            await gc.displaySlowText("I trust you to make this choice, sir.");
             await gc.wait(6_000);
-            await gc.displaySlowText(
-                "YOU MUST PRESS THE BUTTON!",
-                { size: 32, interval: 300 }
-            );
+            await gc.displaySlowText("YOU MUST PRESS THE BUTTON!", {
+                size: 32,
+                interval: 300,
+            });
             await gc.wait(10_000);
             await gc.displaySlowText(
                 "You have failed as a President... Our people have died, and you do nothing!"
             );
             await gc.wait(6_000);
-            await gc.displaySlowText(
-                "Disgraceful, sir... We trusted you..."
-            );
+            await gc.displaySlowText("Disgraceful, sir... We trusted you...");
             await gc.wait(6_000);
             gc.clearText();
-        }
+        },
     },
     {
         name: "save_button",
@@ -58,22 +54,34 @@ export const EVENT_LIST: Array<GameEvent> = [
         procedure: async (gc) => {
             await gc.displaySlowText("Sir, you seem tired...");
             await gc.wait(3_000);
-            await gc.displaySlowText("You do know you don't need to always be staring at the button, right?");
+            await gc.displaySlowText(
+                "You do know you don't need to always be staring at the button, right?"
+            );
             await gc.wait(3_000);
-            await gc.displaySlowText("You can in fact leave, take a rest... Nothing bad will happen!");
+            await gc.displaySlowText(
+                "You can in fact leave, take a rest... Nothing bad will happen!"
+            );
             await gc.wait(3_000);
             gc.clearText();
             await gc.wait(6_000);
-            await gc.displaySlowText("Oh! Don't forget to save your progress before leaving, as you would in any game, of course.");
+            await gc.displaySlowText(
+                "Oh! Don't forget to save your progress before leaving, as you would in any game, of course."
+            );
             await gc.wait(6_000);
-            await gc.displaySlowText("How do you save? By pressing the button, of course, dummy!");
+            await gc.displaySlowText(
+                "How do you save? By pressing the button, of course, dummy!"
+            );
             await gc.wait(3_000);
-            await gc.displaySlowText("The yellow button \"Launch!\"es the save protocol, obviously! What did you thing it did?");
+            await gc.displaySlowText(
+                'The yellow button "Launch!"es the save protocol, obviously! What did you thing it did?'
+            );
             await gc.wait(3_000);
-            await gc.displaySlowText("Go ahead, press the button, and go take a nap.");
+            await gc.displaySlowText(
+                "Go ahead, press the button, and go take a nap."
+            );
             await gc.wait(10_000);
             gc.clearText();
-        }
+        },
     },
     {
         name: "just_press_it",
@@ -81,9 +89,13 @@ export const EVENT_LIST: Array<GameEvent> = [
         procedure: async (gc) => {
             await gc.displaySlowText("Dude, just press the button...");
             await gc.wait(3_000);
-            await gc.displaySlowText("Nothing's going to happen until you do...");
+            await gc.displaySlowText(
+                "Nothing's going to happen until you do..."
+            );
             await gc.wait(3_000);
-            await gc.displaySlowText("If you press the button, something cool might happen! Who knows?");
+            await gc.displaySlowText(
+                "If you press the button, something cool might happen! Who knows?"
+            );
             await gc.wait(6_000);
             await gc.displaySlowText("Do it now! Press it!!");
             await gc.wait(3_000);
