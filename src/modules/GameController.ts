@@ -5,9 +5,16 @@ export class GameController {
     private state?: GameUiState;
     private setState?: (state: GameUiState) => void;
     private eventDispatcher: EventDispatcher;
+    private stopped = false;
 
     constructor() {
         this.eventDispatcher = new EventDispatcher(this);
+    }
+
+    private updateState() {
+        if (!this.stopped && this.setState && this.state) {
+            this.setState(this.state);
+        }
     }
 
     public initialize(
@@ -28,16 +35,12 @@ export class GameController {
         text: string,
         { color = "white", size = 24 }: { color?: string; size?: number } = {}
     ): void {
-        if (!this.state || !this.setState) {
-            throw new Error(
-                "UiController: displayText called before initialize."
-            );
+        if (this.state) {
+            this.state.textPromptProperties.text = text;
+            this.state.textPromptProperties.color = color;
+            this.state.textPromptProperties.size = size;
+            this.updateState();
         }
-
-        this.state.textPromptProperties.text = text;
-        this.state.textPromptProperties.color = color;
-        this.state.textPromptProperties.size = size;
-        this.setState(this.state);
     }
 
     public async displaySlowText(
@@ -62,5 +65,6 @@ export class GameController {
 
     public async gameOver(): Promise<void> {
         await this.eventDispatcher.end();
+        this.stopped = true;
     }
 }

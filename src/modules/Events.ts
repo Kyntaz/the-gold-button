@@ -1,20 +1,21 @@
 import { GameController } from "./GameController";
 
 export type GameEvent = {
+    name: string;
     probability: number;
     procedure: (gameController: GameController) => Promise<void>;
 };
 
 export const EVENT_LIST: Array<GameEvent> = [
-    // Nothing happens
     {
-        probability: 1,
+        name: "nothing_happens",
+        probability: 100,
         procedure: async (gc) => {
             await gc.wait(Math.random() * 30_000);
         },
     },
-    // Eminent destruction
     {
+        name: "eminent_destruction",
         probability: 1,
         procedure: async (gc) => {
             await gc.displaySlowText("SIR!", { size: 32, interval: 2 });
@@ -51,8 +52,8 @@ export const EVENT_LIST: Array<GameEvent> = [
             gc.clearText();
         }
     },
-    // Save button
     {
+        name: "save_button",
         probability: 1,
         procedure: async (gc) => {
             await gc.displaySlowText("Sir, you seem tired...");
@@ -74,9 +75,25 @@ export const EVENT_LIST: Array<GameEvent> = [
             gc.clearText();
         }
     },
+    {
+        name: "just_press_it",
+        probability: 1,
+        procedure: async (gc) => {
+            await gc.displaySlowText("Dude, just press the button...");
+            await gc.wait(3_000);
+            await gc.displaySlowText("Nothing's going to happen until you do...");
+            await gc.wait(3_000);
+            await gc.displaySlowText("If you press the button, something cool might happen! Who knows?");
+            await gc.wait(6_000);
+            await gc.displaySlowText("Do it now! Press it!!");
+            await gc.wait(3_000);
+            gc.clearText();
+        },
+    },
 ];
 
 export const GAME_START_EVENT: GameEvent = {
+    name: "game_start_event",
     probability: 1,
     procedure: async (gc) => {
         await gc.displaySlowText(
@@ -137,6 +154,7 @@ export const GAME_START_EVENT: GameEvent = {
 };
 
 export const GAME_OVER_EVENT: GameEvent = {
+    name: "game_over_event",
     probability: 1,
     procedure: async (gameController) => {
         await gameController.displaySlowText(
