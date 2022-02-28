@@ -2,6 +2,7 @@
   "name": "the-gold-button",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
@@ -17,7 +18,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:post": "node ./scripts/PostBuild.mjs",
+    "build:assets": "react-scripts build",
+    "build": "npm run build:assets && npm run build:post",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "npx eslint ./src/ --ext .js,.jsx,.ts,.tsx --fix",
